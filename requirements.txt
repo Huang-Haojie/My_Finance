@@ -1,0 +1,5 @@
+yfinance~=0.2.66
+numpy~=2.3.3
+scipy~=1.16.2
+gradio~=5.49.1
+pandas~=2.3.3
