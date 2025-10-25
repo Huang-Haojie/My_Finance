@@ -26,8 +26,6 @@ def bsm_ivol(S, K, r, y, T, option_type, f, x0=None):
                 result = fsolve(func, guess, full_output=True)
                 sigma = result[0][0]
                 info = result[1]
-
-                # Check if solution converged and is reasonable
                 if info['fvec'][0] ** 2 < 1e-6 and 0 < sigma < 10:
                     return sigma
             except:
@@ -69,7 +67,7 @@ def calculate_portfolio_std(weights, cov_matrix):
 def calculate_portfolio_sharpe(weights, returns, risk_free_rate=0.02):
     portfolio_returns = (returns+1).prod()-1
     portfolio_return = np.dot(weights, portfolio_returns)
-    cov_matrix = returns.cov()  # Calculate covariance matrix
+    cov_matrix = returns.cov()
     portfolio_std = calculate_portfolio_std(weights, cov_matrix)
 
     return (portfolio_return - risk_free_rate) / portfolio_std
