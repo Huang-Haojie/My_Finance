@@ -408,11 +408,11 @@ class StockWebUI:
                         'Market Price': f"${market_price:.2f}",
                         'Theoretical Price': f"${theoretical_price:.2f}" if theoretical_price else 'N/A',
                         'Implied Vol': f"{iv:.2%}" if iv else 'N/A',
-                        'Delta': f"{delta:.4f}" if delta else 'N/A',
-                        'Gamma': f"{gamma:.4f}" if gamma else 'N/A',
-                        'Vega': f"{vega:.4f}" if vega else 'N/A',
-                        'Theta': f"{theta:.4f}" if theta else 'N/A',
-                        'Rho': f"{rho:.4f}" if rho else 'N/A',
+                        'Delta': f"{delta:.4f}" if delta else 'N/A',        #change in option price/change in stock price
+                        'Gamma': f"{gamma:.4f}" if gamma else 'N/A',        #change in delta/change in stock price
+                        'Vega': f"{vega:.4f}" if vega else 'N/A',           #change in option price/change in stock volatility
+                        'Theta': f"{theta:.4f}" if theta else 'N/A',        #change in option price/time to maturity
+                        'Rho': f"{rho:.4f}" if rho else 'N/A',              #change in option price/rf rate change
                         'Volume': option.get('volume', 0),
                         'Open Interest': option.get('openInterest', 0)
                     })
